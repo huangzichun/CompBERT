@@ -63,7 +63,6 @@ class Discrete_BERT(nn.Module):
         x_gap = []
         x_discrete = x
         x_continue = x
-        # TODO: 是否需要同时输出离散，连续和混合表达。gap是否需要每一层都保留和约束
         for transformer in self.transformer_blocks:
             x_continue, x_discrete, coef = transformer.forward(x, mask)
             # weight = self.adjust_layer(x)
